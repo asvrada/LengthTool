@@ -13,6 +13,7 @@
 		788612C824F4A2CE0079E2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788612C724F4A2CE0079E2A3 /* Assets.xcassets */; };
 		788612CB24F4A2CE0079E2A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788612CA24F4A2CE0079E2A3 /* Preview Assets.xcassets */; };
 		788612CE24F4A2CE0079E2A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788612CC24F4A2CE0079E2A3 /* LaunchScreen.storyboard */; };
+		788612D624F4A5530079E2A3 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788612D524F4A5530079E2A3 /* Units.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		788612CA24F4A2CE0079E2A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		788612CD24F4A2CE0079E2A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		788612CF24F4A2CE0079E2A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788612D524F4A5530079E2A3 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				788612CC24F4A2CE0079E2A3 /* LaunchScreen.storyboard */,
 				788612CF24F4A2CE0079E2A3 /* Info.plist */,
 				788612C924F4A2CE0079E2A3 /* Preview Content */,
+				788612D524F4A5530079E2A3 /* Units.swift */,
 			);
 			path = LengthTool;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				788612C224F4A2CD0079E2A3 /* AppDelegate.swift in Sources */,
+				788612D624F4A5530079E2A3 /* Units.swift in Sources */,
 				788612C424F4A2CD0079E2A3 /* SceneDelegate.swift in Sources */,
 				788612C624F4A2CD0079E2A3 /* ContentView.swift in Sources */,
 			);

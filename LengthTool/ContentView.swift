@@ -145,10 +145,6 @@ struct ContentView: View {
         )
     }
 
-    private var ratioString: String {
-        getRatioString(isFromImperialToMetric: self.textFieldEditing == 0, imperial: unitImperial, metric: unitMetric)
-    }
-
     var body: some View {
         NavigationView {
             Form {
@@ -174,10 +170,11 @@ struct ContentView: View {
                 }
 
                 Section(header: Text("Ratio")) {
-                    Text("\(ratioString)")
+                    Text("\(getRatioString(isFromImperialToMetric: true, imperial: unitImperial, metric: unitMetric))")
+                    Text("\(getRatioString(isFromImperialToMetric: false, imperial: unitImperial, metric: unitMetric))")
                 }
 
-                Section(header: Text("Metric")) {
+                Section(header: Text("Metric Unit")) {
                     TextField("Metric Unit Amount", text: bindingInputAmountMetric)
                         .keyboardType(.decimalPad)
 
@@ -189,7 +186,7 @@ struct ContentView: View {
                         .pickerStyle(SegmentedPickerStyle())
                 }
             }
-                .navigationBarTitle("Length Convert Tool")
+            .navigationBarTitle("Length Convert Tool", displayMode: .inline)
         }
     }
 }

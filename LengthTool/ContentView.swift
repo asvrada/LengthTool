@@ -166,7 +166,7 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
 
                     Picker("Pick Imperial Unit", selection: bindingSelectionImperial) {
-                        ForEach(0..<optionsLengthUnitImperial.count) {
+                        ForEach(0 ..< optionsLengthUnitImperial.count) {
                             Text("\(self.optionsLengthUnitImperial[$0])").tag($0)
                         }
                     }
@@ -182,7 +182,7 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
 
                     Picker("Pick Metric Unit", selection: bindingSelectionMetric) {
-                        ForEach(0..<optionsLengthUnitMetric.count) {
+                        ForEach(0 ..< optionsLengthUnitMetric.count) {
                             Text("\(self.optionsLengthUnitMetric[$0])").tag($0)
                         }
                     }

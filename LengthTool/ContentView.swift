@@ -43,7 +43,7 @@ struct ContentView: View {
     // If user is editing this number, then make sure the content doesn't change unless its user input
     // If not, then change to reflect the real number
     @State private var amountImperial: Double? = nil
-    private var inputAmountImperial: Binding<String> {
+    private var bindingInputAmountImperial: Binding<String> {
         Binding (
             get: {
                 if self.textFieldEditing == 0 {
@@ -68,7 +68,7 @@ struct ContentView: View {
     }
 
     @State private var amountMetric: Double? = nil
-    private var inputAmountMetric: Binding<String> {
+    private var bindingInputAmountMetric: Binding<String> {
         Binding (
             get: {
                 if self.textFieldEditing == 1 {
@@ -103,7 +103,7 @@ struct ContentView: View {
                 }
 
                 Section(header: Text("Freedom Unit")) {
-                    TextField("Imperial Unit Amount", text: inputAmountImperial)
+                    TextField("Imperial Unit Amount", text: bindingInputAmountImperial)
                         .keyboardType(.decimalPad)
 
                     Picker("Pick Imperial Unit", selection: $selectOptionsLengthUnitImperial) {
@@ -119,7 +119,7 @@ struct ContentView: View {
                 }
 
                 Section(header: Text("Metric")) {
-                    TextField("Metric Unit Amount", text: inputAmountMetric)
+                    TextField("Metric Unit Amount", text: bindingInputAmountMetric)
                         .keyboardType(.decimalPad)
 
                     Picker("Pick Metric Unit", selection: $selectOptionsLengthUnitMetric) {

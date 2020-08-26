@@ -13,8 +13,20 @@ protocol BaseUnit {
     var name: String { get }
 
     // What would the amount be if this long is in Meter
-    // meters = this / amountInMeter
+    // meters = self / amountInMeter
     var unitAmountInMeter: Double { get }
+}
+
+func getRatioString(isFromImperialToMetric: Bool, imperial: BaseUnit, metric: BaseUnit) -> String {
+
+    // 1 Foot is xxx Meter
+    if isFromImperialToMetric {
+        let amount: Double = 1.0 * imperial.unitAmountInMeter / metric.unitAmountInMeter
+        return "1 \(imperial.name) is \(String(format: "%.2f", amount)) \(metric.name)"
+    } else {
+        let amount: Double = 1.0 * metric.unitAmountInMeter / imperial.unitAmountInMeter
+        return "1 \(metric.name) is \(String(format: "%.2f", amount)) \(imperial.name)"
+    }
 }
 
 // Metric System

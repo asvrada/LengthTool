@@ -34,13 +34,16 @@ struct ContentView: View {
             get: {
                 return self.selectOptionsLengthUnitImperial
             }, set: {
-            self.selectOptionsLengthUnitImperial = $0
+                self.selectOptionsLengthUnitImperial = $0
 
-            // also update amountInMeter
-            if let number = self.amountImperial {
-                self.amountInMeter = number * self.unitImperial.unitAmountInMeter
+                // also update amountInMeter
+                if self.textFieldEditing == 0 {
+                    if let number = self.amountImperial {
+                        self.amountInMeter = number * self.unitImperial.unitAmountInMeter
+                    }
+                }
             }
-        })
+        )
     }
 
     private var bindingSelectionMetric: Binding<Int> {
@@ -48,13 +51,16 @@ struct ContentView: View {
             get: {
                 return self.selectOptionsLengthUnitMetric
             }, set: {
-            self.selectOptionsLengthUnitMetric = $0
+                self.selectOptionsLengthUnitMetric = $0
 
-            // also update amountInMeter
-            if let number = self.amountMetric {
-                self.amountInMeter = number * self.unitMetric.unitAmountInMeter
+                // also update amountInMeter
+                if self.textFieldEditing == 1 {
+                    if let number = self.amountMetric {
+                        self.amountInMeter = number * self.unitMetric.unitAmountInMeter
+                    }
+                }
             }
-        })
+        )
     }
 
     private var unitImperial: BaseUnit {
@@ -84,7 +90,7 @@ struct ContentView: View {
                 }
 
                 if let number = self.amountInMeter {
-                    return String(number / self.unitImperial.unitAmountInMeter)
+                    return String(format: "%.2f", number / self.unitImperial.unitAmountInMeter)
                 } else {
                     return ""
                 }
@@ -92,6 +98,12 @@ struct ContentView: View {
             set: {
                 self.textFieldEditing = 0
                 self.textFieldContent = $0
+
+                if $0.count == 0 {
+                    self.amountImperial = nil
+                    self.amountInMeter = nil
+                    return
+                }
 
                 if let number = Double($0) {
                     self.amountImperial = number
@@ -110,7 +122,7 @@ struct ContentView: View {
                 }
 
                 if let number = self.amountInMeter {
-                    return String(number / self.unitMetric.unitAmountInMeter)
+                    return String(format: "%.2f", number / self.unitMetric.unitAmountInMeter)
                 } else {
                     return ""
                 }
@@ -119,12 +131,22 @@ struct ContentView: View {
                 self.textFieldEditing = 1
                 self.textFieldContent = $0
 
+                if $0.count == 0 {
+                    self.amountInMeter = nil
+                    self.amountInMeter = nil
+                    return
+                }
+
                 if let number = Double($0) {
                     self.amountMetric = number
                     self.amountInMeter = number * self.unitMetric.unitAmountInMeter
                 }
             }
         )
+    }
+
+    private var ratioString: String {
+        getRatioString(isFromImperialToMetric: self.textFieldEditing == 0, imperial: unitImperial, metric: unitMetric)
     }
 
     var body: some View {
@@ -139,7 +161,7 @@ struct ContentView: View {
                     }
                 }
 
-                Section(header: Text("Freedom Unit")) {
+                Section(header: Text("Imperial Unit")) {
                     TextField("Imperial Unit Amount", text: bindingInputAmountImperial)
                         .keyboardType(.decimalPad)
 
@@ -152,7 +174,7 @@ struct ContentView: View {
                 }
 
                 Section(header: Text("Ratio")) {
-                    Text("Placeholder for Ratio")
+                    Text("\(ratioString)")
                 }
 
                 Section(header: Text("Metric")) {

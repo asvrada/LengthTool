@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E889479F90B90D6C33EAF17 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		788612BE24F4A2CD0079E2A3 /* LengthTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LengthTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788612C124F4A2CD0079E2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788612C324F4A2CD0079E2A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 			children = (
 				788612C024F4A2CD0079E2A3 /* LengthTool */,
 				788612BF24F4A2CD0079E2A3 /* Products */,
+				6E889479F90B90D6C33EAF17 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};

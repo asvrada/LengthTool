@@ -9,20 +9,53 @@
 import SwiftUI
 
 
-
 struct ContentView: View {
+    private let DEBUG = false
+
     private let listUnitImperial: [BaseUnit] = [Inch(), Foot(), Yard(), Mile()]
     private let listUnitMetric: [BaseUnit] = [Centimeter(), Meter(), Kilometer()]
 
     private var optionsLengthUnitImperial: [String] {
-        listUnitImperial.map { $0.name }
+        listUnitImperial.map {
+            $0.name
+        }
     }
     private var optionsLengthUnitMetric: [String] {
-        listUnitMetric.map { $0.name }
+        listUnitMetric.map {
+            $0.name
+        }
     }
 
     @State private var selectOptionsLengthUnitImperial = 0
     @State private var selectOptionsLengthUnitMetric = 0
+
+    private var bindingSelectionImperial: Binding<Int> {
+        Binding(
+            get: {
+                return self.selectOptionsLengthUnitImperial
+            }, set: {
+            self.selectOptionsLengthUnitImperial = $0
+
+            // also update amountInMeter
+            if let number = self.amountImperial {
+                self.amountInMeter = number * self.unitImperial.unitAmountInMeter
+            }
+        })
+    }
+
+    private var bindingSelectionMetric: Binding<Int> {
+        Binding(
+            get: {
+                return self.selectOptionsLengthUnitMetric
+            }, set: {
+            self.selectOptionsLengthUnitMetric = $0
+
+            // also update amountInMeter
+            if let number = self.amountMetric {
+                self.amountInMeter = number * self.unitMetric.unitAmountInMeter
+            }
+        })
+    }
 
     private var unitImperial: BaseUnit {
         listUnitImperial[selectOptionsLengthUnitImperial]
@@ -44,7 +77,7 @@ struct ContentView: View {
     // If not, then change to reflect the real number
     @State private var amountImperial: Double? = nil
     private var bindingInputAmountImperial: Binding<String> {
-        Binding (
+        Binding(
             get: {
                 if self.textFieldEditing == 0 {
                     return self.textFieldContent
@@ -61,6 +94,7 @@ struct ContentView: View {
                 self.textFieldContent = $0
 
                 if let number = Double($0) {
+                    self.amountImperial = number
                     self.amountInMeter = number * self.unitImperial.unitAmountInMeter
                 }
             }
@@ -69,7 +103,7 @@ struct ContentView: View {
 
     @State private var amountMetric: Double? = nil
     private var bindingInputAmountMetric: Binding<String> {
-        Binding (
+        Binding(
             get: {
                 if self.textFieldEditing == 1 {
                     return self.textFieldContent
@@ -86,6 +120,7 @@ struct ContentView: View {
                 self.textFieldContent = $0
 
                 if let number = Double($0) {
+                    self.amountMetric = number
                     self.amountInMeter = number * self.unitMetric.unitAmountInMeter
                 }
             }
@@ -95,23 +130,25 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Debug")) {
-                    Text("\(amountInMeter ?? 0) amountInMeter")
+                if DEBUG {
+                    Section(header: Text("Debug")) {
+                        Text("\(amountInMeter ?? -1) amountInMeter")
 
-//                    Text("\(amountImperial ?? 0) amountImperial")
-//                    Text("\(amountMetric ?? 0) amountMetric")
+                        Text("\(amountImperial ?? -1) amountImperial")
+                        Text("\(amountMetric ?? -1) amountMetric")
+                    }
                 }
 
                 Section(header: Text("Freedom Unit")) {
                     TextField("Imperial Unit Amount", text: bindingInputAmountImperial)
                         .keyboardType(.decimalPad)
 
-                    Picker("Pick Imperial Unit", selection: $selectOptionsLengthUnitImperial) {
-                        ForEach(0 ..< optionsLengthUnitImperial.count) {
+                    Picker("Pick Imperial Unit", selection: bindingSelectionImperial) {
+                        ForEach(0..<optionsLengthUnitImperial.count) {
                             Text("\(self.optionsLengthUnitImperial[$0])").tag($0)
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                        .pickerStyle(SegmentedPickerStyle())
                 }
 
                 Section(header: Text("Ratio")) {
@@ -122,15 +159,15 @@ struct ContentView: View {
                     TextField("Metric Unit Amount", text: bindingInputAmountMetric)
                         .keyboardType(.decimalPad)
 
-                    Picker("Pick Metric Unit", selection: $selectOptionsLengthUnitMetric) {
-                        ForEach(0 ..< optionsLengthUnitMetric.count) {
+                    Picker("Pick Metric Unit", selection: bindingSelectionMetric) {
+                        ForEach(0..<optionsLengthUnitMetric.count) {
                             Text("\(self.optionsLengthUnitMetric[$0])").tag($0)
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())
+                        .pickerStyle(SegmentedPickerStyle())
                 }
             }
-            .navigationBarTitle("Length Convert Tool")
+                .navigationBarTitle("Length Convert Tool")
         }
     }
 }

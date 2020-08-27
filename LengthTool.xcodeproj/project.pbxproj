@@ -17,8 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E889479F90B90D6C33EAF17 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
-		788612BE24F4A2CD0079E2A3 /* LengthTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LengthTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		788612BE24F4A2CD0079E2A3 /* Length Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Length Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		788612C124F4A2CD0079E2A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788612C324F4A2CD0079E2A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		788612C524F4A2CD0079E2A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,14 +44,13 @@
 			children = (
 				788612C024F4A2CD0079E2A3 /* LengthTool */,
 				788612BF24F4A2CD0079E2A3 /* Products */,
-				6E889479F90B90D6C33EAF17 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
 		788612BF24F4A2CD0079E2A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				788612BE24F4A2CD0079E2A3 /* LengthTool.app */,
+				788612BE24F4A2CD0079E2A3 /* Length Converter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,7 +95,7 @@
 			);
 			name = LengthTool;
 			productName = LengthTool;
-			productReference = 788612BE24F4A2CD0079E2A3 /* LengthTool.app */;
+			productReference = 788612BE24F4A2CD0079E2A3 /* Length Converter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,15 +290,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LengthTool/Preview Content\"";
-				DEVELOPMENT_TEAM = SB82G5S6HE;
+				DEVELOPMENT_TEAM = Q6K2XGB74V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LengthTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = biz.kksk.LengthTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = biz.kksk.LengthConverter;
+				PRODUCT_NAME = "Length Converter";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -312,15 +310,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LengthTool/Preview Content\"";
-				DEVELOPMENT_TEAM = SB82G5S6HE;
+				DEVELOPMENT_TEAM = Q6K2XGB74V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LengthTool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = biz.kksk.LengthTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = biz.kksk.LengthConverter;
+				PRODUCT_NAME = "Length Converter";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -186,7 +186,7 @@ struct ContentView: View {
                         .pickerStyle(SegmentedPickerStyle())
                 }
             }
-            .navigationBarTitle("Length Convert Tool", displayMode: .inline)
+            .navigationBarTitle("Length Converter", displayMode: .inline)
         }
     }
 }

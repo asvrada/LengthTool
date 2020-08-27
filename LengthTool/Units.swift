@@ -18,14 +18,13 @@ protocol BaseUnit {
 }
 
 func getRatioString(isFromImperialToMetric: Bool, imperial: BaseUnit, metric: BaseUnit) -> String {
-
     // 1 Foot is xxx Meter
     if isFromImperialToMetric {
         let amount: Double = 1.0 * imperial.unitAmountInMeter / metric.unitAmountInMeter
-        return "1 \(imperial.name) is \(String(format: "%.2f", amount)) \(metric.name)"
+        return "1 \(imperial.name) is \(amount.toString()) \(metric.name)"
     } else {
         let amount: Double = 1.0 * metric.unitAmountInMeter / imperial.unitAmountInMeter
-        return "1 \(metric.name) is \(String(format: "%.2f", amount)) \(imperial.name)"
+        return "1 \(metric.name) is \(amount.toString()) \(imperial.name)"
     }
 }
 
@@ -38,7 +37,7 @@ struct Meter : BaseUnit {
 
 struct Centimeter: BaseUnit {
     let name = "Centimeter"
-    let unitAmountInMeter: Double = 0.001
+    let unitAmountInMeter: Double = 0.01
 }
 
 struct Kilometer: BaseUnit {
@@ -69,12 +68,16 @@ struct Mile: BaseUnit {
 }
 
 extension Double {
-    static func powd(base: Double, power: Int) -> Double {
-        return 1.0
-    }
+    func toString() -> String {
+        var numberDecimal = 2
 
-    func roundTo(count: Int) -> Double {
-        let amount: Double = Double.powd(base: 10.0, power: count)
-        return (amount * self).rounded() / amount
+        var bar: Double = 0.01
+        while bar > (self / 10) {
+            bar /= 10
+            numberDecimal += 1
+        }
+
+        let formatString = "%.\(numberDecimal)f"
+        return String(format: formatString, self)
     }
 }

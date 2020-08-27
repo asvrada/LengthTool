@@ -69,10 +69,14 @@ struct Mile: BaseUnit {
 
 extension Double {
     func toString() -> String {
-        var numberDecimal = 2
+        let barMinimalCap: Double = 0.00000001
+        if self < barMinimalCap {
+            return "0"
+        }
 
+        var numberDecimal = 2
         var bar: Double = 0.01
-        while bar > (self / 10) {
+        while bar > (self / 10) && bar >= barMinimalCap {
             bar /= 10
             numberDecimal += 1
         }

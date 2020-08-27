@@ -90,7 +90,7 @@ struct ContentView: View {
                 }
 
                 if let number = self.amountInMeter {
-                    return String(format: "%.2f", number / self.unitImperial.unitAmountInMeter)
+                    return (number / self.unitImperial.unitAmountInMeter).toString()
                 } else {
                     return ""
                 }
@@ -122,7 +122,7 @@ struct ContentView: View {
                 }
 
                 if let number = self.amountInMeter {
-                    return String(format: "%.2f", number / self.unitMetric.unitAmountInMeter)
+                    return (number / self.unitMetric.unitAmountInMeter).toString()
                 } else {
                     return ""
                 }

@@ -186,7 +186,7 @@ struct ContentView: View {
                         .pickerStyle(SegmentedPickerStyle())
                 }
             }
-            .navigationBarTitle("Length Converter", displayMode: .inline)
+            .navigationBarTitle("Length Unit Converter", displayMode: .inline)
         }
     }
 }

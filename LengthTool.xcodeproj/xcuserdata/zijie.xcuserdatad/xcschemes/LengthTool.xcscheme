@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "788612BD24F4A2CD0079E2A3"
-               BuildableName = "Length Conversion.app"
+               BuildableName = "Length Unit Converter.app"
                BlueprintName = "LengthTool"
                ReferencedContainer = "container:LengthTool.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "788612BD24F4A2CD0079E2A3"
-            BuildableName = "Length Conversion.app"
+            BuildableName = "Length Unit Converter.app"
             BlueprintName = "LengthTool"
             ReferencedContainer = "container:LengthTool.xcodeproj">
          </BuildableReference>
